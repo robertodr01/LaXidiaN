@@ -1,0 +1,339 @@
+% Define custom hexadecimal colors
+\definecolor{lightblue}{HTML}{E6F0FC}
+\definecolor{myblue}{HTML}{E5F8F8}
+\definecolor{myorange}{HTML}{FDF1E5}
+\definecolor{lol2}{HTML}{EC7500}
+
+\definecolor{myinfo}{HTML}{E5F8F8} % Light Blue
+\definecolor{titleinfo}{HTML}{1977E0}
+
+\definecolor{mytip}{HTML}{E5F8F8}
+\definecolor{titletip}{HTML}{15C5C2}
+
+\definecolor{myfaq}{HTML}{FDF1E5}
+\definecolor{titlefaq}{HTML}{EC7500}
+
+\definecolor{mywarning}{HTML}{FDF1E5} % Orange
+
+\definecolor{mysuccess}{HTML}{E6F8ED} % Green
+\definecolor{titlesuccess}{HTML}{08B94E}
+
+\definecolor{myerror}{HTML}{FDEAEC} % Red
+\definecolor{titleerror}{HTML}{E93147} % Red
+
+\definecolor{backgroundquote}{HTML}{e6e6e6}
+\definecolor{linequote}{HTML}{6D52D5}
+
+\definecolor{theorem-proofbox}{HTML}{D8D5E1}
+\definecolor{theorem-prooftitle}{HTML}{7852EE}
+
+% STYLE CHAPTER %
+
+\titleformat{\chapter}[display]
+  {\bfseries\Large}
+  {\filleft\MakeUppercase{\chaptertitlename} \LARGE\thechapter}
+  {1ex}
+  {\titlerule\Huge\vspace{1ex}\filright}
+  [\vspace{1ex}\titlerule]
+
+\def\blankpage{%
+      \clearpage%
+      \thispagestyle{empty}%
+      \null%
+      \clearpage}
+
+\renewcommand\vec{\boldsymbol}
+
+% -------------------------- %
+
+% STYLE SECTION %
+
+\titleformat{\section}
+    {\normalfont\LARGE\bfseries}{\arabic{chapter}.\arabic{section}}{0.5em}{}
+
+\titleformat{\subsection}
+    {\normalfont\Large\bfseries}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}{0.5em}{}
+
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{0.5em}{}
+
+% -------------------------- %
+
+% STYLE PAGE %
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\fancyhead[L]{\bfseries \MakeUppercase \leftmark}
+\fancyhead[C]{}
+\fancyhead[R]{\textit{\MakeUppercase \thesection \space - \rightmark}}
+\fancyfoot[L]{}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{}
+ \setlength{\headheight}{14.49998pt}
+
+\setlength{\parindent}{0pt} % remove indent from paragraph
+
+% -------------------------- %
+
+% Define a tcolorbox style for callout boxes
+
+% Box Parameters
+% #1 -> Color 
+% #2 -> label
+
+% ---- CALLOUTS ----%
+
+\newtcolorbox[auto counter,number within=chapter]{callouts-with-label}[2]{
+    colback=#1,
+    arc=3pt, % Adjust the corner radius as needed
+    boxrule=0pt,frame hidden,
+    enhanced,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    label=#2,
+    breakable
+}
+
+\newtcolorbox[auto counter,number within=chapter]{callouts-no-label}[1]{
+    colback=#1,
+    arc=3pt, % Adjust the corner radius as needed
+    boxrule=0pt,frame hidden,
+    enhanced,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    breakable
+}
+
+% --------------------------------%
+
+\newtcolorbox[auto counter,number within=chapter]{theoremb}[2]{
+    colback=#1,
+    arc=3pt, % Adjust the corner radius as needed
+    boxrule=0pt,frame hidden,
+    enhanced,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    label=#2,
+    breakable
+}
+
+\newtcolorbox[auto counter,number within=chapter]{proof-with-label}[2]{
+    colback=#1,
+    arc=3pt, % Adjust the corner radius as needed
+    boxrule=0pt,frame hidden,
+    enhanced,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    label=#2,
+    breakable
+}
+
+% \newtcolorbox[auto counter,number within=chapter]{proof-no-label}[1]{
+%     colback=#1,
+%     arc=3pt, % Adjust the corner radius as needed
+%     boxrule=0pt,frame hidden,
+%     enhanced,
+%     left=10pt,
+%     right=10pt,
+%     top=8pt,
+%     bottom=8pt,
+%     breakable
+% }
+
+\newtcolorbox[auto counter,number within=chapter]{quote-with-label}[1]{
+    arc=3pt, % Adjust the corner radius as needed
+    enhanced,
+    boxrule=0pt,frame hidden,
+    borderline west={3pt}{0pt}{linequote!0!linequote},
+    colback=backgroundquote,
+    label=#1,
+    breakable
+}
+
+\newtcolorbox[auto counter,number within=chapter]{quote-no-label}{
+    arc=3pt, % Adjust the corner radius as needed
+    enhanced,
+    boxrule=0pt,frame hidden,
+    borderline west={3pt}{0pt}{linequote!0!linequote},
+    colback=backgroundquote,
+    breakable
+}
+
+% Callouts Parameters
+% #1 -> Title 
+% #2 -> Text
+% #3 -> Label
+
+\newcommand{\infobox}[3]{
+
+    \ifthenelse{\equal{#3}{}}{ % TRUE
+        \begin{callouts-no-label}{lightblue}
+            \textcolor{titleinfo}{\faInfoCircle \space \space \bfseries {#1}}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-no-label}
+    }{ % FALSE
+        \begin{callouts-with-label}{lightblue}{#3}
+            \textcolor{titleinfo}{\faInfoCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-with-label}
+    }
+}
+
+\newcommand{\tipbox}[3]{
+
+    \ifthenelse{\equal{#3}{}}{ % TRUE
+        \begin{callouts-no-label}{mytip}
+            \textcolor{titletip}{\faLightbulbO \space \space \bfseries {#1}}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-no-label}
+    }{ % FALSE
+        \begin{callouts-with-label}{mytip}{#3}
+            \textcolor{titletip}{\faLightbulbO \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-with-label}
+    }
+}
+
+
+
+\newcommand{\faqbox}[3]{
+
+    \ifthenelse{\equal{#3}{}}{ % TRUE
+        \begin{callouts-no-label}{myfaq}
+            \textcolor{titlefaq}{\faQuestionCircle \space \space \bfseries {#1}}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-no-label}
+    }{ % FALSE
+        \begin{callouts-with-label}{myfaq}{#3}
+            \textcolor{titlefaq}{\faQuestionCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
+            \vspace{0.3cm}
+            #2
+        \end{callouts-with-label}
+    }    
+    
+}
+
+\newcommand{\successbox}[3]{
+
+    \ifthenelse{\equal{#3}{}}{ % TRUE
+        \begin{callouts-no-label}{mysuccess}
+            \textcolor{titlesuccess}{\faCheckCircle \space \space \bfseries {#1}}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-no-label}
+    }{ % FALSE
+        \begin{callouts-with-label}{mysuccess}{#3}
+            \textcolor{titlesuccess}{\faCheckCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-with-label}
+    }    
+    
+}
+
+\newcommand{\errorbox}[3]{
+
+    \ifthenelse{\equal{#3}{}}{ % TRUE
+        \begin{callouts-no-label}{myerror}
+            \textcolor{titleerror}{\faTimesCircle \space \space \bfseries {#1}}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-no-label}
+    }{ % FALSE
+        \begin{callouts-with-label}{myerror}{#3}
+            \textcolor{titleerror}{\faTimesCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{callouts-with-label}
+    }    
+    
+}
+
+% #1 -> color
+% #2 -> title
+% #3 -> text
+% #4 -> label
+
+\newcommand{\custombox}[4]{
+
+    \ifthenelse{\equal{#4}{}}{ % TRUE
+        \begin{callouts-no-label}{#1}
+            {\bfseries {#2}}\par % Title
+            \vspace{0.3cm}
+                #3
+        \end{callouts-no-label}
+    }{ % FALSE
+        \begin{callouts-with-label}{#1}{#4}
+            {\bfseries {#2} (\thetcbcounter)\par} % Title
+            \vspace{0.3cm}
+                #3
+        \end{callouts-with-label}
+    }
+
+}
+
+\newcommand{\quotebox}[2]{
+    \ifthenelse{\equal{#2}{}}{
+        \begin{quote-no-label}
+            #1 
+        \end{quote-no-label}
+    }{
+        \begin{quote-with-label}{#2}
+            #1 (\thetcbcounter) 
+        \end{quote-with-label}
+    }
+}
+
+\newcommand{\theorembox}[3]{
+    \ifthenelse{\equal{#1}{}}{
+        \begin{theoremb}{theorem-proofbox}{#3}
+            \textcolor{theorem-prooftitle}{ \bfseries Theorem (\thetcbcounter). \space}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{theoremb}
+    }{
+        \begin{theoremb}{theorem-proofbox}{#3}
+            \textcolor{theorem-prooftitle}{ \bfseries Theorem (\thetcbcounter) {#1}. \space}\par % Title
+            \vspace{0.3cm}
+                #2
+        \end{theoremb}
+    }
+}
+
+\newcommand{\proofbox}[3]{
+    \begin{proof-with-label}{theorem-proofbox}{#3}
+        \textcolor{theorem-prooftitle}{ \bfseries Proof (\thetcbcounter) Theorem \ref{#2} \space}\par % Title
+        \vspace{0.3cm}
+            #1
+    \end{proof-with-label}
+}
+
+% ---- ----------------- ----%
+% \newcommand{\Proof}[3]{
+%     \begin{theorem-proof}{theorem-proofbox}
+%     { \bfseries \hyperref[#1]{\textcolor{theorem-prooftitle}{Proof}} }\par % Title
+%     \vspace{0.3cm}
+%         #2
+%     \ifthenelse{\equal{#3}{}}{}{\label{#3}}
+%     \end{theorem-proof}
+% }
+
+
+
+
+
+

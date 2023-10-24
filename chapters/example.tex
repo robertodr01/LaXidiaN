@@ -1,0 +1,82 @@
+\chapter{Example}
+
+\section{Section 1}
+Lua\TeX{} is a \textit{toolkit}—it contains \textbf{sophisticated} software tools and components with which you can construct (typeset) a wide range of documents. The sub-title of this article also poses two questions about Lua\TeX: What is it—and what makes it so different? The answer to “What is it?” may seem obvious: “It’s a \TeX{} typesetting engine!” Indeed it is, but a broader view, and one to which this author subscribes, is that Lua\TeX{} is an extremely versatile \TeX-based document construction and engineering system.
+
+\subsection{Subsection}
+The goal of this first article on Lua\TeX{} is to offer a context for understanding what this TeX engine provides and why/how its design enables users to build/design/create a wide range of solutions to complex typesetting and design problems—perhaps also offering some degree of “future proofing” 
+
+\subsubsection{SubSubSection}
+\lipsum[1]
+
+\infobox{Info box}{
+    \lipsum[1]
+}{info:box}
+
+\infobox{Info box}{
+    \lipsum[1]
+}{}
+
+\tipbox{Tip box}{
+    \lipsum[1]
+}{tip:box}
+
+\tipbox{Tip box}{
+    \lipsum[1]
+}{}
+
+\faqbox{FAQ box}{
+    \lipsum[1]
+}{faq:box}
+
+\faqbox{FAQ box}{
+    \lipsum[1]
+}{}
+
+\successbox{Success box}{
+    \lipsum[1]
+}{suc:box}
+
+\successbox{Success box}{
+    \lipsum[1]
+}{}
+
+\errorbox{Error box}{
+    \lipsum[1]
+}{err:box}
+
+\errorbox{Error box}{
+    \lipsum[1]
+}{}
+
+This text is referred to box \ref{info:box}. \\
+This text is referred to box \ref{tip:box}. \\
+This text is referred to box \ref{faq:box}. \\
+This text is referred to box \ref{suc:box}. \\
+This text is referred to box \ref{err:box}. \\
+This text is referred to box \ref{cus:box}. \\
+
+\section{Title}
+
+
+\definecolor{customcolor}{HTML}{C6E2FF}
+\custombox{customcolor}{\faCodeFork \space \space Custom box}{\lipsum[1]}{cus:box}
+\custombox{customcolor}{\faCodeFork \space \space Custom box}{\lipsum[1]}{}
+
+\quotebox{\lipsum[1]}{}
+\quotebox{\lipsum[1]}{quote:box}
+
+\theorembox{Nysquits}{Nyquist, noto anche come il teorema di campionamento di Nyquist, stabilisce le condizioni necessarie per la campionatura di un segnale analogico in modo che possa essere ricostruito senza perdita di informazioni. $$f_s \geq 2 \cdot f_{\text{max}}$$}{theorem:nysquits}
+\theorembox{}{\lipsum[1]}{theorem:case}
+
+\proofbox{\lipsum[1]}{theorem:nysquits}{proof:case}
+
+\chapter{Example 2}
+\lipsum[1]
+
+$$ \sum_{i = 0} a^{i} = 0 $$ 
+
+
+\begin{equation} \large
+H(y, \hat{y}) = -\sum_{i} (y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i))
+\end{equation}

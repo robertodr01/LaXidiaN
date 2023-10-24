@@ -1,0 +1,29 @@
+\documentclass[a4paper, oneside, 11pt]{book}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\usepackage[scaled=0.92]{helvet}
+
+\usepackage{packages}
+\usepackage{styles}
+\usepackage{definitions}
+
+% package fondamentali
+\usepackage[sfdefault]{inter}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian, english]{babel}
+
+\begin{document}
+
+\backmatter
+\include{cover}
+
+\frontmatter
+\include{contents}
+
+\mainmatter
+\include{chapters/example}
+
+\end{document}

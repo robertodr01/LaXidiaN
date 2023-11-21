@@ -195,14 +195,22 @@
     \ifthenelse{\equal{#3}{}}{ % TRUE
         \begin{callouts-no-label}{mytip}
             \textcolor{titletip}{\faLightbulbO \space \space \bfseries {#1}}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-no-label}
     }{ % FALSE
         \begin{callouts-with-label}{mytip}{#3}
             \textcolor{titletip}{\faLightbulbO \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-with-label}
     }
 }
@@ -214,14 +222,22 @@
     \ifthenelse{\equal{#3}{}}{ % TRUE
         \begin{callouts-no-label}{myfaq}
             \textcolor{titlefaq}{\faQuestionCircle \space \space \bfseries {#1}}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-no-label}
     }{ % FALSE
         \begin{callouts-with-label}{myfaq}{#3}
             \textcolor{titlefaq}{\faQuestionCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
-            \vspace{0.3cm}
-            #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-with-label}
     }    
     
@@ -232,14 +248,22 @@
     \ifthenelse{\equal{#3}{}}{ % TRUE
         \begin{callouts-no-label}{mysuccess}
             \textcolor{titlesuccess}{\faCheckCircle \space \space \bfseries {#1}}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-no-label}
     }{ % FALSE
         \begin{callouts-with-label}{mysuccess}{#3}
             \textcolor{titlesuccess}{\faCheckCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-with-label}
     }    
     
@@ -250,14 +274,22 @@
     \ifthenelse{\equal{#3}{}}{ % TRUE
         \begin{callouts-no-label}{myerror}
             \textcolor{titleerror}{\faTimesCircle \space \space \bfseries {#1}}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-no-label}
     }{ % FALSE
         \begin{callouts-with-label}{myerror}{#3}
             \textcolor{titleerror}{\faTimesCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-with-label}
     }    
     
@@ -273,14 +305,22 @@
     \ifthenelse{\equal{#4}{}}{ % TRUE
         \begin{callouts-no-label}{#1}
             {\bfseries {#2}}\par % Title
-            \vspace{0.3cm}
-                #3
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-no-label}
     }{ % FALSE
         \begin{callouts-with-label}{#1}{#4}
             {\bfseries {#2} (\thetcbcounter)\par} % Title
-            \vspace{0.3cm}
-                #3
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-with-label}
     }
 
@@ -302,14 +342,22 @@
     \ifthenelse{\equal{#1}{}}{
         \begin{theoremb}{theorem-proofbox}{#3}
             \textcolor{theorem-prooftitle}{ \bfseries Theorem (\thetcbcounter). \space}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{theoremb}
     }{
         \begin{theoremb}{theorem-proofbox}{#3}
             \textcolor{theorem-prooftitle}{ \bfseries Theorem (\thetcbcounter) {#1}. \space}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{theoremb}
     }
 }
@@ -331,9 +379,3 @@
 %     \ifthenelse{\equal{#3}{}}{}{\label{#3}}
 %     \end{theorem-proof}
 % }
-
-
-
-
-
-

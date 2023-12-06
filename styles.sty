@@ -178,14 +178,22 @@
     \ifthenelse{\equal{#3}{}}{ % TRUE
         \begin{callouts-no-label}{lightblue}
             \textcolor{titleinfo}{\faInfoCircle \space \space \bfseries {#1}}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-no-label}
     }{ % FALSE
         \begin{callouts-with-label}{lightblue}{#3}
             \textcolor{titleinfo}{\faInfoCircle \space \space \bfseries {#1} (\thetcbcounter)}\par % Title
-            \vspace{0.3cm}
-                #2
+            \ifx&#2&
+                #2 % #2 is empty
+            \else 
+                \vspace{0.3cm}
+                    #2
+            \fi
         \end{callouts-with-label}
     }
 }

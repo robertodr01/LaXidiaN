@@ -15,6 +15,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian, english]{babel}
 
+\AtEndPreamble{
+    \usepackage[capitalize]{cleveref}
+    \crefname{section}{Sec.}{Secs.}
+    \Crefname{section}{Section}{Sections}
+    \crefname{table}{Tab.}{Tabs.}
+    \Crefname{table}{Table}{Tables}
+}
+
 \begin{document}
 
 \AtEndDocument{
@@ -26,8 +34,8 @@
         \centering
         \includegraphics[width=1.5in, clip, keepaspectratio]{images/logo/laxidian-logo.pdf}
     \end{figure}
-    {\huge \textbf{LaXidiaN}} \medskip \\ {\large A \LaTeX template inspired by Obisdian.} \bigskip \\
-    \textbf{This document was written using LaXidiaN, a sophisticated LaTeX template inspired by Obisidian. If you have any feedback you´d like to share, be it a complaint or a new feature you´d like to see, please open an issue or a pull request on our github repository.} \bigskip \\ %
+    {\huge \textbf{LaXidiaN}} \medskip \\ {\large A \LaTeX template inspired by Obsidian.} \bigskip \\
+    \textbf{This document was written using LaXidiaN, a sophisticated LaTeX template inspired by Obsidian. If you have any feedback you´d like to share, be it a complaint or a new feature you´d like to see, please open an issue or a pull request on our github repository.} \bigskip \\ %
     \href{https://github.com/robertodr01/LaXidiaN}{\underline{LaXidiaN repository}}
   \end{center}
   \vfill

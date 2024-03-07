@@ -15,6 +15,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian, english]{babel}
 
+\AtEndPreamble{
+    \usepackage[capitalize]{cleveref}
+    \crefname{section}{Sec.}{Secs.}
+    \Crefname{section}{Section}{Sections}
+    \crefname{table}{Tab.}{Tabs.}
+    \Crefname{table}{Table}{Tables}
+}
+
 \begin{document}
 
 \AtEndDocument{
